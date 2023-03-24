@@ -7,29 +7,100 @@ import (
 	"sciensoft.dev/testing/fluent/integers"
 )
 
-func TestFluentShouldHaveIntToBeGreaterThan(t *testing.T) {
+func TestFluentIntShouldBe(t *testing.T) {
+	// Arrange
 	fluent := integers.Fluent[int](t)
 
-	fluent.It(30).
+	// Act
+	// Assert
+	fluent.It(10).
 		Should().
-		BeGreaterThan(10).
-		And().
-		BeGreaterThan(25)
+		Be(10)
 }
 
-func TestFluentShouldHaveFloatToBeGreaterThan(t *testing.T) {
-	fluent := integers.Fluent[int64](t)
-
-	fluent.It(math.MaxInt64).
-		Should().
-		BeGreaterThan(math.MaxInt64 - 1000).
-		And().
-		BeGreaterThan(math.MaxInt64 - 1)
-}
-
-func TestFluentShouldHaveIntToBeLowerThan(t *testing.T) {
+func TestFluentIntShouldBeZero(t *testing.T) {
+	// Arrange
 	fluent := integers.Fluent[int](t)
 
+	// Act
+	// Assert
+	fluent.It(0).
+		Should().
+		BeZero()
+}
+
+func TestFluentIntShouldBeNegative(t *testing.T) {
+	// Arrange
+	fluent := integers.Fluent[int](t)
+
+	// Act
+	// Assert
+	fluent.It(-1).
+		Should().
+		BeNegative()
+}
+
+func TestFluentIntShouldBePositive(t *testing.T) {
+	// Arrange
+	fluent := integers.Fluent[int](t)
+
+	// Act
+	// Assert
+	fluent.It(10).
+		Should().
+		BePositive()
+}
+
+func TestFluentIntShouldNotBe(t *testing.T) {
+	// Arrange
+	fluent := integers.Fluent[int](t)
+
+	// Act
+	// Assert
+	fluent.It(142).
+		Should().
+		NotBe(10)
+}
+
+func TestFluentIntShouldNotBeZero(t *testing.T) {
+	// Arrange
+	fluent := integers.Fluent[int](t)
+
+	// Act
+	// Assert
+	fluent.It(1).
+		Should().
+		NotBeZero()
+}
+
+func TestFluentIntShouldNotBeNegative(t *testing.T) {
+	// Arrange
+	fluent := integers.Fluent[int](t)
+
+	// Act
+	// Assert
+	fluent.It(10).
+		Should().
+		NotBeNegative()
+}
+
+func TestFluentIntShouldNotBePositive(t *testing.T) {
+	// Arrange
+	fluent := integers.Fluent[int](t)
+
+	// Act
+	// Assert
+	fluent.It(-10).
+		Should().
+		NotBePositive()
+}
+
+func TestFluentIntShouldBeLowerThan(t *testing.T) {
+	// Arrange
+	fluent := integers.Fluent[int](t)
+
+	// Act
+	// Assert
 	fluent.It(100).
 		Should().
 		BeLowerThan(150).
@@ -37,10 +108,37 @@ func TestFluentShouldHaveIntToBeLowerThan(t *testing.T) {
 		BeLowerThan(233)
 }
 
-func TestFluentShouldHaveIntToBeLowerThanOrEqualTo(t *testing.T) {
+func TestFluentIntShouldBeLowerThanOrEqualTo(t *testing.T) {
+	// Arrange
 	fluent := integers.Fluent[int](t)
 
-	fluent.It(10).Should().
-		Be(10).And().
+	// Act
+	// Assert
+	fluent.It(10).
+		Should().
 		BeLowerThanOrEqualTo(15)
+}
+
+func TestFluentIntShouldBeGreaterThan(t *testing.T) {
+	// Arrange
+	fluent := integers.Fluent[int](t)
+
+	// Act
+	// Assert
+	fluent.It(30).
+		Should().
+		BeGreaterThan(25).
+		And().
+		BeLowerThan(50)
+}
+
+func TestFluentIntShouldBeGreaterThanOrEqualTo(t *testing.T) {
+	// Arrange
+	fluent := integers.Fluent[int64](t)
+
+	// Act
+	// Assert
+	fluent.It(math.MaxInt64).
+		Should().
+		BeGreaterThanOrEqualTo(math.MaxInt64 - 1000)
 }

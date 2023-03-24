@@ -14,8 +14,8 @@ func (s *FluentT[T]) It(subject T) ISubject[T] {
 	sub := Subject[T]{
 		Testable: &Testable[T]{},
 	}
-	sub.testingT = s.testingT
-	sub.value = subject
+	sub.TestingT = s.testingT
+	sub.Value = subject
 
 	return &sub
 }
