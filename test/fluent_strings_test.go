@@ -6,7 +6,7 @@ import (
 	"sciensoft.dev/testing/fluent/strings"
 )
 
-func TestFluentStringShouldBe(t *testing.T) {
+func TestFluentStringsShouldBe(t *testing.T) {
 	// Arrange
 	fluent := strings.Fluent(t)
 
@@ -19,7 +19,7 @@ func TestFluentStringShouldBe(t *testing.T) {
 		Should().Be(text2)
 }
 
-func TestFluentStringShouldBeEmpty(t *testing.T) {
+func TestFluentStringsShouldBeEmpty(t *testing.T) {
 	// Arrange
 	fluent := strings.Fluent(t)
 
@@ -29,7 +29,7 @@ func TestFluentStringShouldBeEmpty(t *testing.T) {
 		Should().BeEmpty()
 }
 
-func TestFluentStringShouldBeOneOf(t *testing.T) {
+func TestFluentStringsShouldBeOneOf(t *testing.T) {
 	// Arrange
 	fluent := strings.Fluent(t)
 
@@ -45,7 +45,7 @@ func TestFluentStringShouldBeOneOf(t *testing.T) {
 		Should().BeOneOf(texts)
 }
 
-func TestFluentStringShouldNotBe(t *testing.T) {
+func TestFluentStringsShouldNotBe(t *testing.T) {
 	// Arrange
 	fluent := strings.Fluent(t)
 
@@ -55,7 +55,7 @@ func TestFluentStringShouldNotBe(t *testing.T) {
 		Should().NotBe("This is not hello world!")
 }
 
-func TestFluentStringShouldNotBeEmpty(t *testing.T) {
+func TestFluentStringsShouldNotBeEmpty(t *testing.T) {
 	// Arrange
 	fluent := strings.Fluent(t)
 
@@ -65,7 +65,7 @@ func TestFluentStringShouldNotBeEmpty(t *testing.T) {
 		Should().NotBeEmpty()
 }
 
-func TestFluentStringShouldNotBeOneOf(t *testing.T) {
+func TestFluentStringsShouldNotBeOneOf(t *testing.T) {
 	// Arrange
 	fluent := strings.Fluent(t)
 
@@ -81,7 +81,7 @@ func TestFluentStringShouldNotBeOneOf(t *testing.T) {
 		Should().NotBeOneOf(texts)
 }
 
-func TestFluentStringShouldMatch(t *testing.T) {
+func TestFluentStringsShouldMatch(t *testing.T) {
 	// Arrange
 	fluent := strings.Fluent(t)
 
@@ -98,7 +98,7 @@ func TestFluentStringShouldMatch(t *testing.T) {
 		Match(`(World){1}`)
 }
 
-func TestFluentStringShouldNotMatch(t *testing.T) {
+func TestFluentStringsShouldNotMatch(t *testing.T) {
 	// Arrange
 	fluent := strings.Fluent(t)
 
@@ -113,7 +113,7 @@ func TestFluentStringShouldNotMatch(t *testing.T) {
 		NotMatch(`(World){1}`)
 }
 
-func TestFluentStringShouldStartWith(t *testing.T) {
+func TestFluentStringsShouldStartWith(t *testing.T) {
 	// Arrange
 	fluent := strings.Fluent(t)
 
@@ -123,7 +123,7 @@ func TestFluentStringShouldStartWith(t *testing.T) {
 		Should().StartWith("He")
 }
 
-func TestFluentStringShouldNotStartWith(t *testing.T) {
+func TestFluentStringsShouldNotStartWith(t *testing.T) {
 	// Arrange
 	fluent := strings.Fluent(t)
 
@@ -133,7 +133,7 @@ func TestFluentStringShouldNotStartWith(t *testing.T) {
 		Should().NotStartWith("Hall")
 }
 
-func TestFluentStringShouldEndWith(t *testing.T) {
+func TestFluentStringsShouldEndWith(t *testing.T) {
 	// Arrange
 	fluent := strings.Fluent(t)
 
@@ -143,7 +143,7 @@ func TestFluentStringShouldEndWith(t *testing.T) {
 		Should().EndWith("ld!")
 }
 
-func TestFluentStringShouldNotEndWith(t *testing.T) {
+func TestFluentStringsShouldNotEndWith(t *testing.T) {
 	// Arrange
 	fluent := strings.Fluent(t)
 
@@ -153,7 +153,7 @@ func TestFluentStringShouldNotEndWith(t *testing.T) {
 		Should().NotEndWith("word!")
 }
 
-func TestFluentStringShouldHaveLengthOf(t *testing.T) {
+func TestFluentStringsShouldHaveLengthOf(t *testing.T) {
 	// Arrange
 	fluent := strings.Fluent(t)
 

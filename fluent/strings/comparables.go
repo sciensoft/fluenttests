@@ -1,12 +1,16 @@
 package strings
 
 func (s *Comparable) Be(comparable string) IAdditional {
-	be(s.testingT, s.value, comparable)
+	match(s.testingT, true, s.value, comparable, "Expected value '%v' is not equal to '%v'.")
 	return s.createAdditional()
 }
 
 func (s *Comparable) BeEmpty() {
-	beEmpty(s.testingT, true, s.value, "Value [%v] is not empty.")
+	match(s.testingT, true, s.value, `^\s{0}$`, "Value '%v' is not empty. It's expected to match expression `%v`.")
+}
+
+func (s *Comparable) BeWhiteSpace() {
+	match(s.testingT, true, s.value, `^\s{1,}$`, "Value '%v' does not match pattern `s%v`.")
 }
 
 func (s *Comparable) BeOneOf(comparables []string) IAdditional {
@@ -15,12 +19,12 @@ func (s *Comparable) BeOneOf(comparables []string) IAdditional {
 }
 
 func (s *Comparable) NotBe(comparable string) IAdditional {
-	notBe(s.testingT, s.value, comparable)
+	match(s.testingT, false, s.value, comparable, "Expected value '%v' is equal to '%v'.")
 	return s.createAdditional()
 }
 
 func (s *Comparable) NotBeEmpty() IAdditional {
-	beEmpty(s.testingT, false, s.value, "Value [%v] is empty.")
+	match(s.testingT, false, s.value, `^\s{0}$`, "Value '%v' is empty. It's expected to match pattern `%v`.")
 	return s.createAdditional()
 }
 
@@ -30,14 +34,12 @@ func (s *Comparable) NotBeOneOf(comparables []string) IAdditional {
 }
 
 func (s *Comparable) Match(pattern string) IAdditional {
-	comparable := func(b bool) bool { return !b }
-	match(s.testingT, s.value, pattern, comparable, "Value [%v] does not match pattern [%v].")
+	match(s.testingT, true, s.value, pattern, "Value '%v' does not match pattern `%v`.")
 	return s.createAdditional()
 }
 
 func (s *Comparable) NotMatch(pattern string) IAdditional {
-	comparable := func(b bool) bool { return b }
-	match(s.testingT, s.value, pattern, comparable, "Value [%v] does match pattern [%v].")
+	match(s.testingT, false, s.value, pattern, "Value '%v' does match pattern `%v`.")
 	return s.createAdditional()
 }
 

@@ -10,25 +10,6 @@ import (
 
 const comparableNotOfTypeMessageFormat string = "Comparison value is not of [%t]."
 
-func be(t *testing.T, subject string, comparable string) {
-	if subject != comparable {
-		t.Errorf("Expected value [%v] is not equal to [%v].", subject, comparable)
-	}
-}
-
-func beEmpty(t *testing.T, toBe bool, subject string, messagesf ...string) {
-	isEmpty := subject == "" && len(subject) == 0
-
-	if !toBe {
-		isEmpty = !isEmpty
-	}
-
-	if !isEmpty {
-		message := fluent.GetMessage("Value [%d] mis-match [%d].", messagesf...)
-		t.Errorf(message, subject)
-	}
-}
-
 func beOneOf(t *testing.T, toBe bool, subject string, comparables []string, messagesf ...string) {
 	isOneOf := false
 
@@ -48,16 +29,14 @@ func beOneOf(t *testing.T, toBe bool, subject string, comparables []string, mess
 	}
 }
 
-func notBe(t *testing.T, subject string, comparable string) {
-	if subject == comparable {
-		t.Errorf("Expected value [%v] is not equal to [%v].", subject, comparable)
+func match(t *testing.T, toBe bool, subject string, pattern string, messagesf ...string) {
+	isMatch, err := regexp.MatchString(pattern, subject)
+
+	if !toBe {
+		isMatch = !isMatch
 	}
-}
 
-func match(t *testing.T, subject string, pattern string, comparableTest func(bool) bool, messagesf ...string) {
-	b, err := regexp.MatchString(pattern, subject)
-
-	if comparableTest(b) || err != nil {
+	if !isMatch || err != nil {
 		message := fluent.GetMessage("Value [%d] mis-match [%d].", messagesf...)
 		t.Errorf(message, subject, pattern)
 	}
