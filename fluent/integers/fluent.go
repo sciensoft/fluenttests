@@ -1,21 +1,24 @@
-package fluent
+package integers
 
 import (
 	"testing"
+
+	"golang.org/x/exp/constraints"
+	"sciensoft.dev/testing/fluent"
 )
 
-func Fluent[T any](t *testing.T) IFluent[T] {
+func Fluent[T constraints.Integer](t *testing.T) fluent.IFluent[T, IComparable[T]] {
 	return &FluentT[T]{
 		testingT: t,
 	}
 }
 
-func (s *FluentT[T]) It(subject T) ISubject[T] {
+func (s *FluentT[T]) It(subject T) fluent.ISubject[T, IComparable[T]] {
 	sub := Subject[T]{
 		Testable: &Testable[T]{},
 	}
-	sub.TestingT = s.testingT
-	sub.Value = subject
+	sub.testingT = s.testingT
+	sub.value = subject
 
 	return &sub
 }

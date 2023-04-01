@@ -5,6 +5,7 @@ import (
 	"strings"
 	"testing"
 
+	"golang.org/x/exp/constraints"
 	"sciensoft.dev/testing/fluent"
 )
 
@@ -71,5 +72,13 @@ func endWith(t *testing.T, toBe bool, subject string, comparable string, message
 func haveLengthOf(t *testing.T, subject string, comparable int) {
 	if len(subject) != comparable {
 		t.Errorf("Expected value [%v] to have length of [%d] but it has [%d].", subject, comparable, len(subject))
+	}
+}
+
+func haveFnv[T constraints.Integer](t *testing.T, fvnSumFx func() T, subject string, comparable T) {
+	var sum T = fvnSumFx()
+
+	if sum != comparable {
+		t.Errorf("Expected value [%v] to have Fvn32a sum of [%d] but it's sum is [%d].", subject, comparable, sum)
 	}
 }

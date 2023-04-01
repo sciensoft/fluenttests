@@ -2,44 +2,20 @@ package fluent
 
 import "testing"
 
-type IFluent[T any] interface {
-	It(subject T) ISubject[T]
+type IFluent[T any, Y IComparable[T]] interface {
+	It(subject T) ISubject[T, Y]
 }
 
-type ISubject[T any] interface {
-	Should() IComparable[T]
+type ISubject[T any, Y IComparable[T]] interface {
+	Should() Y
 }
 
-type IComparable[T any] interface {
-	Be(comparable T) IAdditional[T]
-	NotBe(comparable T) IAdditional[T]
-	BeLowerThan(comparable T) IAdditional[T]
-	BeLowerThanOrEqualTo(comparable T) IAdditional[T]
-	BeGreaterThan(comparable T) IAdditional[T]
-	BeGreaterThanOrEqualTo(comparable T) IAdditional[T]
+type IAdditional[T any, Y IComparable[T]] interface {
+	And() Y
 }
 
-type IAdditional[T any] interface {
-	And() IComparable[T]
-}
+type IComparable[T any] interface{}
 
-type FluentT[T any] struct {
-	testingT *testing.T
-}
-
-type Testable[T any] struct {
-	TestingT *testing.T
-	Value    T
-}
-
-type Subject[T any] struct {
-	*Testable[T]
-}
-
-type Comparable[T any] struct {
-	*Testable[T]
-}
-
-type Additional[T any] struct {
-	*Comparable[T]
+type IValidator[TValue any, TExpected any] interface {
+	Validate(t *testing.T, value TValue, expected TExpected, messagesf ...string)
 }

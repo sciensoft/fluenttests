@@ -2,63 +2,50 @@ package strings
 
 import (
 	"testing"
+
+	"sciensoft.dev/testing/fluent"
 )
 
 type String interface {
 	~string
 }
 
-type IFluent interface {
-	It(subject string) ISubject
-}
-
-type ISubject interface {
-	Should() IComparable
-}
-
 type IComparable interface {
-	Be(comparable string) IAdditional
+	fluent.IComparable[string]
+	Be(comparable string) fluent.IAdditional[string, IComparable]
 	BeEmpty()
-	BeOneOf(comparables []string) IAdditional
-	NotBe(comparable string) IAdditional
-	NotBeEmpty() IAdditional
-	NotBeOneOf(comparables []string) IAdditional
-	Match(pattern string) IAdditional
-	NotMatch(pattern string) IAdditional
-	StartWith(prefix string) IAdditional
-	NotStartWith(prefix string) IAdditional
-	EndWith(comparable string) IAdditional
-	NotEndWith(comparable string) IAdditional
-	HaveLengthOf(length int) IAdditional
-
-	// TODO : Review
-	// BeLowerThan(comparable string) IAdditional
-	// BeLowerThanOrEqualTo(comparable string) IAdditional
-	// BeGreaterThan(comparable string) IAdditional
-	// BeGreaterThanOrEqualTo(comparable string) IAdditional
-}
-
-type IAdditional interface {
-	And() IComparable
+	BeOneOf(comparables []string) fluent.IAdditional[string, IComparable]
+	NotBe(comparable string) fluent.IAdditional[string, IComparable]
+	NotBeEmpty() fluent.IAdditional[string, IComparable]
+	NotBeOneOf(comparables []string) fluent.IAdditional[string, IComparable]
+	Match(pattern string) fluent.IAdditional[string, IComparable]
+	NotMatch(pattern string) fluent.IAdditional[string, IComparable]
+	StartWith(prefix string) fluent.IAdditional[string, IComparable]
+	NotStartWith(prefix string) fluent.IAdditional[string, IComparable]
+	EndWith(comparable string) fluent.IAdditional[string, IComparable]
+	NotEndWith(comparable string) fluent.IAdditional[string, IComparable]
+	HaveLengthOf(length int) fluent.IAdditional[string, IComparable]
+	HaveFnv32aSumOf(comparable uint32) fluent.IAdditional[string, IComparable]
+	HaveFnv64aSumOf(comparable uint64) fluent.IAdditional[string, IComparable]
 }
 
 type FluentT struct {
 	testingT *testing.T
 }
 
-type Testable struct {
-	testingT *testing.T
-	value    string
-}
-
 type Subject struct {
 	*Testable
+}
+
+type Additional struct {
+	*Comparable
 }
 
 type Comparable struct {
 	*Testable
 }
 
-type Additional struct {
-	*Comparable
+type Testable struct {
+	testingT *testing.T
+	value    string
 }

@@ -6,3 +6,7 @@ func GetMessage(original string, messagesf ...string) string {
 	}
 	return original
 }
+
+func CreateValidator[TValue any, TExpected any, T IValidator[TValue, TExpected]]() *T {
+	return new(T)
+}

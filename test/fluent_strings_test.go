@@ -1,6 +1,7 @@
 package tdd
 
 import (
+	"hash/fnv"
 	"testing"
 
 	"sciensoft.dev/testing/fluent/strings"
@@ -11,8 +12,8 @@ func TestFluentStringsShouldBe(t *testing.T) {
 	fluent := strings.Fluent(t)
 
 	// Act
-	text1 := "Hello world!"
-	text2 := "Hello world!"
+	text1 := "Ola, tudo bem?"
+	text2 := "Ola, tudo bem?"
 
 	// Assert
 	fluent.It(text1).
@@ -37,11 +38,11 @@ func TestFluentStringsShouldBeOneOf(t *testing.T) {
 	texts := []string{
 		"This is a message",
 		"which contains",
-		"Hello World!",
+		"Bonjour le monde!",
 	}
 
 	// Assert
-	fluent.It("Hello World!").
+	fluent.It("Bonjour le monde!").
 		Should().BeOneOf(texts)
 }
 
@@ -51,8 +52,8 @@ func TestFluentStringsShouldNotBe(t *testing.T) {
 
 	// Act
 	// Assert
-	fluent.It("Hello World!").
-		Should().NotBe("This is not hello world!")
+	fluent.It("¡Hola Mundo!").
+		Should().NotBe("¡Esto no es Hola Mundo!")
 }
 
 func TestFluentStringsShouldNotBeEmpty(t *testing.T) {
@@ -163,4 +164,32 @@ func TestFluentStringsShouldHaveLengthOf(t *testing.T) {
 	// Assert
 	fluent.It("Hello World!").
 		Should().HaveLengthOf(length)
+}
+
+func TestFluentStringsShouldHaveFnv32aSumOf(t *testing.T) {
+	// Arrange
+	fluent := strings.Fluent(t)
+	fnvHasher := fnv.New32a()
+
+	// Act
+	fnvHasher.Write([]byte("Hello World!"))
+	fnvSum32 := fnvHasher.Sum32()
+
+	// Assert
+	fluent.It("Hello World!").
+		Should().HaveFnv32aSumOf(fnvSum32)
+}
+
+func TestFluentStringsShouldHaveFnv64aSumOf(t *testing.T) {
+	// Arrange
+	fluent := strings.Fluent(t)
+	fnvHasher := fnv.New64a()
+
+	// Act
+	fnvHasher.Write([]byte("Hello World!"))
+	fnvSum64 := fnvHasher.Sum64()
+
+	// Assert
+	fluent.It("Hello World!").
+		Should().HaveFnv64aSumOf(fnvSum64)
 }
