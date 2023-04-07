@@ -68,6 +68,6 @@ func TestFluentContractsShouldHaveMethodNamed(t *testing.T) {
 
 	// Act
 	// Assert
-	fluent.It(fluent).Should().
-		HaveMethodNamed("It")
+	fluent.It(fluent).
+		Should().HaveMethodNamed("It")
 }
