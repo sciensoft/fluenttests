@@ -11,7 +11,7 @@ import (
 
 const comparableNotOfTypeMessageFormat string = "Comparison value is not of [%t]."
 
-func beOneOf(t *testing.T, toBe bool, subject string, comparables []string, messagesf ...string) {
+func beOneOf(t *testing.T, invert bool, subject string, comparables []string, messagesf ...string) {
 	isOneOf := false
 
 	for _, c := range comparables {
@@ -20,7 +20,7 @@ func beOneOf(t *testing.T, toBe bool, subject string, comparables []string, mess
 		}
 	}
 
-	if !toBe {
+	if invert {
 		isOneOf = !isOneOf
 	}
 
@@ -30,10 +30,10 @@ func beOneOf(t *testing.T, toBe bool, subject string, comparables []string, mess
 	}
 }
 
-func match(t *testing.T, toBe bool, subject string, pattern string, messagesf ...string) {
+func match(t *testing.T, invert bool, subject string, pattern string, messagesf ...string) {
 	isMatch, err := regexp.MatchString(pattern, subject)
 
-	if !toBe {
+	if invert {
 		isMatch = !isMatch
 	}
 
@@ -43,10 +43,10 @@ func match(t *testing.T, toBe bool, subject string, pattern string, messagesf ..
 	}
 }
 
-func startWith(t *testing.T, toBe bool, subject string, comparable string, messagesf ...string) {
+func startWith(t *testing.T, invert bool, subject string, comparable string, messagesf ...string) {
 	hasPrefix := strings.HasPrefix(subject, comparable)
 
-	if !toBe {
+	if invert {
 		hasPrefix = !hasPrefix
 	}
 
@@ -56,10 +56,10 @@ func startWith(t *testing.T, toBe bool, subject string, comparable string, messa
 	}
 }
 
-func endWith(t *testing.T, toBe bool, subject string, comparable string, messagesf ...string) {
+func endWith(t *testing.T, invert bool, subject string, comparable string, messagesf ...string) {
 	hasSuffix := strings.HasSuffix(subject, comparable)
 
-	if !toBe {
+	if invert {
 		hasSuffix = !hasSuffix
 	}
 
