@@ -6,8 +6,8 @@ import (
 	"sciensoft.dev/testing/fluent"
 )
 
-func (s *Comparable) Be(comparable string) fluent.IAdditional[string, IComparable] {
-	match(s.testingT, false, s.value, comparable, "Expected value '%v' is not equal to '%v'.")
+func (s *Comparable) Be(value string) fluent.IAdditional[string, IComparable] {
+	match(s.testingT, false, s.value, value, "Expected value '%v' is not equal to '%v'.")
 	return s.createAdditional()
 }
 
@@ -19,13 +19,13 @@ func (s *Comparable) BeWhiteSpace() {
 	match(s.testingT, false, s.value, `^\s{1,}$`, "Value '%v' does not match pattern `s%v`.")
 }
 
-func (s *Comparable) BeOneOf(comparables []string) fluent.IAdditional[string, IComparable] {
-	beOneOf(s.testingT, false, s.value, comparables, "Expected value [%v] is not one of [%v].")
+func (s *Comparable) BeOneOf(values []string) fluent.IAdditional[string, IComparable] {
+	beOneOf(s.testingT, false, s.value, values, "Expected value [%v] is not one of [%v].")
 	return s.createAdditional()
 }
 
-func (s *Comparable) NotBe(comparable string) fluent.IAdditional[string, IComparable] {
-	match(s.testingT, true, s.value, comparable, "Expected value '%v' is equal to '%v'.")
+func (s *Comparable) NotBe(value string) fluent.IAdditional[string, IComparable] {
+	match(s.testingT, true, s.value, value, "Expected value '%v' is equal to '%v'.")
 	return s.createAdditional()
 }
 
@@ -34,8 +34,8 @@ func (s *Comparable) NotBeEmpty() fluent.IAdditional[string, IComparable] {
 	return s.createAdditional()
 }
 
-func (s *Comparable) NotBeOneOf(comparables []string) fluent.IAdditional[string, IComparable] {
-	beOneOf(s.testingT, true, s.value, comparables, "Expected value [%v] is one of [%v].")
+func (s *Comparable) NotBeOneOf(values []string) fluent.IAdditional[string, IComparable] {
+	beOneOf(s.testingT, true, s.value, values, "Expected value [%v] is one of [%v].")
 	return s.createAdditional()
 }
 
@@ -59,13 +59,13 @@ func (s *Comparable) NotStartWith(prefix string) fluent.IAdditional[string, ICom
 	return s.createAdditional()
 }
 
-func (s *Comparable) EndWith(prefix string) fluent.IAdditional[string, IComparable] {
-	endWith(s.testingT, false, s.value, prefix, "Value [%v] does not end with [%v]")
+func (s *Comparable) EndWith(suffix string) fluent.IAdditional[string, IComparable] {
+	endWith(s.testingT, false, s.value, suffix, "Value [%v] does not end with [%v]")
 	return s.createAdditional()
 }
 
-func (s *Comparable) NotEndWith(prefix string) fluent.IAdditional[string, IComparable] {
-	endWith(s.testingT, true, s.value, prefix, "Value [%v] does end with [%v]")
+func (s *Comparable) NotEndWith(suffix string) fluent.IAdditional[string, IComparable] {
+	endWith(s.testingT, true, s.value, suffix, "Value [%v] does end with [%v]")
 	return s.createAdditional()
 }
 
@@ -74,26 +74,26 @@ func (s *Comparable) HaveLengthOf(length int) fluent.IAdditional[string, ICompar
 	return s.createAdditional()
 }
 
-func (s *Comparable) HaveFnv32aSumOf(comparable uint32) fluent.IAdditional[string, IComparable] {
+func (s *Comparable) HaveFnv32aSumOf(sumValue uint32) fluent.IAdditional[string, IComparable] {
 	fnvSumFx := func() uint32 {
 		h := fnv.New32a()
 		h.Write([]byte(s.value))
 		return h.Sum32()
 	}
 
-	haveFnv(s.testingT, fnvSumFx, s.value, comparable)
+	haveFnv(s.testingT, fnvSumFx, s.value, sumValue)
 
 	return s.createAdditional()
 }
 
-func (s *Comparable) HaveFnv64aSumOf(comparable uint64) fluent.IAdditional[string, IComparable] {
+func (s *Comparable) HaveFnv64aSumOf(sumValue uint64) fluent.IAdditional[string, IComparable] {
 	fnvSumFx := func() uint64 {
 		h := fnv.New64a()
 		h.Write([]byte(s.value))
 		return h.Sum64()
 	}
 
-	haveFnv(s.testingT, fnvSumFx, s.value, comparable)
+	haveFnv(s.testingT, fnvSumFx, s.value, sumValue)
 
 	return s.createAdditional()
 }

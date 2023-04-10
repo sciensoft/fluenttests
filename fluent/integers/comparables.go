@@ -2,8 +2,8 @@ package integers
 
 import "sciensoft.dev/testing/fluent"
 
-func (s *Comparable[T]) Be(comparable T) {
-	be(s.testingT, s.value, comparable)
+func (s *Comparable[T]) Be(value T) {
+	be(s.testingT, s.value, value)
 }
 
 func (s *Comparable[T]) BeZero() {
@@ -20,8 +20,8 @@ func (s *Comparable[T]) BePositive() fluent.IAdditional[T, IComparable[T]] {
 	return s.createAdditional()
 }
 
-func (s *Comparable[T]) NotBe(comparable T) fluent.IAdditional[T, IComparable[T]] {
-	notBe(s.testingT, s.value, comparable)
+func (s *Comparable[T]) NotBe(value T) fluent.IAdditional[T, IComparable[T]] {
+	notBe(s.testingT, s.value, value)
 	return s.createAdditional()
 }
 
@@ -40,23 +40,23 @@ func (s *Comparable[T]) NotBePositive() fluent.IAdditional[T, IComparable[T]] {
 	return s.createAdditional()
 }
 
-func (s *Comparable[T]) BeLowerThan(comparable T) fluent.IAdditional[T, IComparable[T]] {
-	lowerThan(s.testingT, s.value, comparable)
+func (s *Comparable[T]) BeLowerThan(value T) fluent.IAdditional[T, IComparable[T]] {
+	lowerThan(s.testingT, s.value, value)
 	return s.createAdditional()
 }
 
-func (s *Comparable[T]) BeLowerThanOrEqualTo(comparable T) fluent.IAdditional[T, IComparable[T]] {
-	lowerThanOrEqualTo(s.testingT, s.value, comparable)
+func (s *Comparable[T]) BeLowerThanOrEqualTo(value T) fluent.IAdditional[T, IComparable[T]] {
+	lowerThanOrEqualTo(s.testingT, s.value, value)
 	return s.createAdditional()
 }
 
-func (s *Comparable[T]) BeGreaterThan(comparable T) fluent.IAdditional[T, IComparable[T]] {
-	greaterThan(s.testingT, s.value, comparable)
+func (s *Comparable[T]) BeGreaterThan(value T) fluent.IAdditional[T, IComparable[T]] {
+	greaterThan(s.testingT, s.value, value)
 	return s.createAdditional()
 }
 
-func (s *Comparable[T]) BeGreaterThanOrEqualTo(comparable T) fluent.IAdditional[T, IComparable[T]] {
-	greaterThanOrEqualTo(s.testingT, s.value, comparable)
+func (s *Comparable[T]) BeGreaterThanOrEqualTo(value T) fluent.IAdditional[T, IComparable[T]] {
+	greaterThanOrEqualTo(s.testingT, s.value, value)
 	return s.createAdditional()
 }
 

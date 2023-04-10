@@ -38,7 +38,7 @@ func TestFluentContractsShouldNotBeOfType(t *testing.T) {
 		Should().NotBeOfType(rtype)
 }
 
-func TestFluentContractsShouldHaveMemberNamed(t *testing.T) {
+func TestFluentContractsShouldHaveMember(t *testing.T) {
 	// Arrange
 	fluent := contracts.Fluent[any](t)
 
@@ -47,10 +47,10 @@ func TestFluentContractsShouldHaveMemberNamed(t *testing.T) {
 
 	// Assert
 	fluent.It(obj).
-		Should().HaveMemberNamed("Name")
+		Should().HaveMember("Name")
 }
 
-func TestFluentContractsShouldHaveFieldNamed(t *testing.T) {
+func TestFluentContractsShouldHaveField(t *testing.T) {
 	// Arrange
 	fluent := contracts.Fluent[any](t)
 
@@ -59,15 +59,99 @@ func TestFluentContractsShouldHaveFieldNamed(t *testing.T) {
 
 	// Assert
 	fluent.It(obj).
-		Should().HaveFieldNamed("Value")
+		Should().HaveField("Value")
 }
 
-func TestFluentContractsShouldHaveMethodNamed(t *testing.T) {
+func TestFluentContractsShouldHaveFieldWithTag(t *testing.T) {
+	// Arrange
+	fluent := contracts.Fluent[any](t)
+
+	// Act
+	obj := struct {
+		Value float32 `json:"value"`
+	}{
+		Value: 105.4,
+	}
+
+	// Assert
+	fluent.It(obj).
+		Should().HaveFieldWithTag("Value", "json")
+}
+
+func TestFluentContractsShouldHaveAllFieldsWithTag(t *testing.T) {
+	// Arrange
+	fluent := contracts.Fluent[any](t)
+
+	// Act
+	obj := struct {
+		Title string  `json:"title"`
+		Value float32 `json:"value"`
+	}{
+		Title: "Book Xyz",
+		Value: 105.4,
+	}
+
+	// Assert
+	fluent.It(obj).
+		Should().HaveAllFieldsWithTag("json")
+}
+
+func TestFluentContractsShouldHaveMethod(t *testing.T) {
 	// Arrange
 	fluent := contracts.Fluent[any](t)
 
 	// Act
 	// Assert
 	fluent.It(fluent).
-		Should().HaveMethodNamed("It")
+		Should().HaveMethod("It")
+}
+
+func TestFluentContractsShouldHaveAnyOfMembers(t *testing.T) {
+	// Arrange
+	fluent := contracts.Fluent[any](t)
+
+	// Act
+	obj := struct {
+		Title     string
+		Author    string
+		Publisher string
+	}{
+		Title:     "A Concurrent Window System",
+		Author:    "Rob Pike",
+		Publisher: "AT&T Bell Laboratories",
+	}
+
+	// Assert
+	fluent.It(obj).
+		Should().
+		HaveAnyOfMembers([]string{
+			"Title",
+			"Description",
+			"PublicationDate",
+		})
+}
+
+func TestFluentContractsShouldHaveAllOfMembers(t *testing.T) {
+	// Arrange
+	fluent := contracts.Fluent[any](t)
+
+	// Act
+	obj := struct {
+		Title     string
+		Author    string
+		Publisher string
+	}{
+		Title:     "A Concurrent Window System",
+		Author:    "Rob Pike",
+		Publisher: "AT&T Bell Laboratories",
+	}
+
+	// Assert
+	fluent.It(obj).
+		Should().
+		HaveAllOfMembers([]string{
+			"Title",
+			"Author",
+			"Publisher",
+		})
 }

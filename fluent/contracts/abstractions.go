@@ -9,11 +9,15 @@ import (
 
 type IComparable[T any] interface {
 	fluent.IComparable[T]
-	BeOfType(comparable reflect.Type) fluent.IAdditional[T, IComparable[T]]
-	NotBeOfType(comparable reflect.Type) fluent.IAdditional[T, IComparable[T]]
-	HaveMemberNamed(comparable string) fluent.IAdditional[T, IComparable[T]]
-	HaveFieldNamed(comparable string) fluent.IAdditional[T, IComparable[T]]
-	HaveMethodNamed(comparable string) fluent.IAdditional[T, IComparable[T]]
+	BeOfType(typeName reflect.Type) fluent.IAdditional[T, IComparable[T]]
+	NotBeOfType(typeName reflect.Type) fluent.IAdditional[T, IComparable[T]]
+	HaveMember(memberName string) fluent.IAdditional[T, IComparable[T]]
+	HaveField(fieldName string) fluent.IAdditional[T, IComparable[T]]
+	HaveFieldWithTag(fieldName string, tagName string) fluent.IAdditional[T, IComparable[T]]
+	HaveAllFieldsWithTag(tagName string) fluent.IAdditional[T, IComparable[T]]
+	HaveMethod(methodName string) fluent.IAdditional[T, IComparable[T]]
+	HaveAnyOfMembers(membersNames []string) fluent.IAdditional[T, IComparable[T]]
+	HaveAllOfMembers(membersNames []string) fluent.IAdditional[T, IComparable[T]]
 	// Add more methods here
 }
 
@@ -37,11 +41,3 @@ type Testable[T any] struct {
 	testingT *testing.T
 	value    T
 }
-
-type MemberType int64
-
-const (
-	MemberTypeAll    MemberType = 0
-	MemberTypeField  MemberType = 1
-	MemberTypeMethod MemberType = 2
-)
