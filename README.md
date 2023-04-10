@@ -32,13 +32,15 @@ For more samples, please visit [the tests] written to test this own library.
 
 ## Features
 
-- Several methods to valid strings, floats, and integers;
+- Several methods to valid strings, floats, and integers
 - Methods to validate structs and interfaces members
 
 ### Roadmap
 
 - Support to `complex64`, and `complex128` types
-- Add more auxiliary methods
+- Add more auxiliary methods for strings, floats, and integers
+- Add asynchronous test support
+- Support for test panic
 
 ## Contributions
 
