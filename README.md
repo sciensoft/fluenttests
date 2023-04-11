@@ -5,7 +5,7 @@ A library with many helpful methods for you to write TDD and BDD-style tests usi
 ## Get Started
 
 ```bash
-go get fluenttest
+go get github.com/AlexzSouz/sciensoft-fluenttest
 ```
 
 ### Usage
