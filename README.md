@@ -1,6 +1,6 @@
 # Fluent Tests
 
-A library with many helpful methods for you to write TDD and BDD-style tests using a fluent language, allowing you to easily organize your tests following the AAA (Arrange, Act, and Assert).
+A library with many helpful methods for you to write TDD and BDD-style tests using a fluent language, allowing you to easily organize your tests following the Arrange, Act, and Assert pattern.
 
 ## Get Started
 
