@@ -3,7 +3,7 @@ package contracts
 import (
 	"testing"
 
-	"sciensoft.dev/testing/fluent"
+	"github.com/sciensoft/fluenttests/fluent"
 )
 
 func Fluent[T any](t *testing.T) fluent.IFluent[T, IComparable[T]] {

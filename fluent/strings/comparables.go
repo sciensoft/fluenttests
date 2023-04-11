@@ -3,7 +3,7 @@ package strings
 import (
 	"hash/fnv"
 
-	"sciensoft.dev/testing/fluent"
+	"github.com/sciensoft/fluenttests/fluent"
 )
 
 func (s *Comparable) Be(value string) fluent.IAdditional[string, IComparable] {

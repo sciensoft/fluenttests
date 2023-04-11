@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"sciensoft.dev/testing/fluent"
+	"github.com/sciensoft/fluenttests/fluent"
 )
 
 type IComparable[T any] interface {

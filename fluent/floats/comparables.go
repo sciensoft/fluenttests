@@ -1,7 +1,7 @@
 package floats
 
 import (
-	"sciensoft.dev/testing/fluent"
+	"github.com/sciensoft/fluenttests/fluent"
 )
 
 func (s *Comparable[T]) Be(value T) {

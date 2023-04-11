@@ -3,7 +3,7 @@ package contracts
 import (
 	"reflect"
 
-	f "sciensoft.dev/testing/fluent"
+	f "github.com/sciensoft/fluenttests/fluent"
 )
 
 func (s *Comparable[T]) BeOfType(typeName reflect.Type) f.IAdditional[T, IComparable[T]] {

@@ -5,7 +5,7 @@ import (
 	"math/rand"
 	"testing"
 
-	"sciensoft.dev/testing/fluent/floats"
+	"github.com/sciensoft/fluenttests/fluent/floats"
 )
 
 func TestFluentFloat32ShouldBe(t *testing.T) {

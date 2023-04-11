@@ -3,8 +3,8 @@ package floats
 import (
 	"testing"
 
+	"github.com/sciensoft/fluenttests/fluent"
 	"golang.org/x/exp/constraints"
-	"sciensoft.dev/testing/fluent"
 )
 
 func Fluent[T constraints.Float](t *testing.T) fluent.IFluent[T, IComparable[T]] {
