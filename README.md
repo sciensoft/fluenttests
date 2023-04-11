@@ -52,7 +52,7 @@ Please use the [Issues] tab to open an issue or suggest a new feature.
 
 ## License
 
-Copyright 2019 Sciensoft
+Copyright 2023 Sciensoft
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
