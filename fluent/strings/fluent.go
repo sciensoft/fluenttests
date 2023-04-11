@@ -3,7 +3,7 @@ package strings
 import (
 	"testing"
 
-	"sciensoft.dev/testing/fluent"
+	"github.com/sciensoft/fluenttests/fluent"
 )
 
 func Fluent(t *testing.T) fluent.IFluent[string, IComparable] {

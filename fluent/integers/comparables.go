@@ -1,6 +1,6 @@
 package integers
 
-import "sciensoft.dev/testing/fluent"
+import "github.com/sciensoft/fluenttests/fluent"
 
 func (s *Comparable[T]) Be(value T) {
 	be(s.testingT, s.value, value)

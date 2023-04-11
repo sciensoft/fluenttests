@@ -4,7 +4,7 @@ import (
 	"hash/fnv"
 	"testing"
 
-	"sciensoft.dev/testing/fluent/strings"
+	"github.com/sciensoft/fluenttests/fluent/strings"
 )
 
 func TestFluentStringsShouldBe(t *testing.T) {

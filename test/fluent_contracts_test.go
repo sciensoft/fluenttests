@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"sciensoft.dev/testing/fluent/contracts"
+	"github.com/sciensoft/fluenttests/fluent/contracts"
 )
 
 func TestFluentContractsShouldBeOfType(t *testing.T) {

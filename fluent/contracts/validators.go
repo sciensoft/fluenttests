@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	f "sciensoft.dev/testing/fluent"
+	f "github.com/sciensoft/fluenttests/fluent"
 )
 
 func ofType[T any](t *testing.T, invert f.AdditiveInverse, value T, comparable reflect.Type, messagesf ...string) {

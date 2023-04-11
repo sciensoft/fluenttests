@@ -3,8 +3,8 @@ package floats
 import (
 	"testing"
 
+	"github.com/sciensoft/fluenttests/fluent"
 	"golang.org/x/exp/constraints"
-	"sciensoft.dev/testing/fluent"
 )
 
 const comparableNotOfTypeMessageFormat string = "Comparison value is not of %t"

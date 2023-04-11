@@ -4,7 +4,7 @@ import (
 	"math"
 	"testing"
 
-	"sciensoft.dev/testing/fluent/integers"
+	"github.com/sciensoft/fluenttests/fluent/integers"
 )
 
 func TestFluentIntShouldBe(t *testing.T) {
