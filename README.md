@@ -1,6 +1,6 @@
 # Fluent Tests
 
-A library with many helpful methods for you to write TDD and BDD-style tests using a fluent language, allowing you to easily organize your tests following the Arrange, Act, and Assert pattern.
+An inspired library to increase productivity by providing helpful methods for you to write TDD and BDD-style tests using a fluent language, allowing you to easily organize your tests following the Arrange, Act, and Assert pattern, and several assertions methods for types, contracts, strings, integers, floats, and more will speed up your SDLC.
 
 ## Get Started
 
@@ -32,8 +32,12 @@ For more samples, please visit [the tests] written to test this own library.
 
 ## Features
 
-- Several methods to valid strings, floats, and integers
-- Methods to validate structs and interfaces members
+- Assertions to validate
+  - Types,
+  - Strings,
+  - Integers,
+  - and Floats
+- Assertions to validate Structs, Interfaces/Objects contracts
 
 ### Roadmap
 
