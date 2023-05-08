@@ -58,6 +58,10 @@ func haveMembers[T any](t *testing.T, invert f.AdditiveInverse, matchType f.Matc
 
 func haveFieldWithTag[T any](t *testing.T, invert f.AdditiveInverse, value T, comparableFieldName string, comparableTagName string, messagesf ...string) {
 	vtype := reflect.TypeOf(value)
+	if vtype.Kind() == reflect.Ptr {
+		vtype = vtype.Elem()
+	}
+
 	field, hasField := vtype.FieldByName(comparableFieldName)
 
 	if hasField {
@@ -72,6 +76,10 @@ func haveFieldWithTag[T any](t *testing.T, invert f.AdditiveInverse, value T, co
 
 func haveAllFieldsWithTag[T any](t *testing.T, invert f.AdditiveInverse, value T, comparableTagName string, messagesf ...string) {
 	vtype := reflect.TypeOf(value)
+	if vtype.Kind() == reflect.Ptr {
+		vtype = vtype.Elem()
+	}
+
 	numFields := vtype.NumField()
 
 	for i := 0; i < numFields; i++ {
@@ -92,6 +100,9 @@ func tryGetMemberByName(mType f.MemberType, vtype reflect.Type, memberName strin
 	}()
 
 	if mType == f.MemberTypeField {
+		if vtype.Kind() == reflect.Ptr {
+			vtype = vtype.Elem()
+		}
 		_, hasField := vtype.FieldByName(memberName)
 		return hasField
 	} else {
