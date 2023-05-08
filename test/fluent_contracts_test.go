@@ -7,10 +7,6 @@ import (
 	"github.com/sciensoft/fluenttests/fluent/contracts"
 )
 
-type MyObject struct {
-	Id int `json:"id"`
-}
-
 func TestFluentContractsShouldBeOfType(t *testing.T) {
 	// Arrange
 	fluent := contracts.Fluent[any](t)
