@@ -9,14 +9,14 @@ import (
 
 func ofType[T any](t *testing.T, invert f.AdditiveInverse, value T, comparable reflect.Type, messagesf ...string) {
 	vtype := reflect.TypeOf(value)
-	isOneOf := vtype != comparable
+	isOfType := vtype == comparable
 
 	if invert {
-		isOneOf = !isOneOf
+		isOfType = !isOfType
 	}
 
-	if isOneOf {
-		message := f.GetMessage("Expected type [%t] is not of type [%v].", messagesf...)
+	if !isOfType {
+		message := f.GetMessage("Expected type [%T] is not of type [%v].", messagesf...)
 		t.Errorf(message, vtype, comparable.Name())
 	}
 }
