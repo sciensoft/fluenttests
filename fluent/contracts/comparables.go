@@ -3,7 +3,6 @@ package contracts
 import (
 	"reflect"
 
-	"github.com/sciensoft/fluenttests/fluent"
 	f "github.com/sciensoft/fluenttests/fluent"
 )
 
@@ -26,7 +25,7 @@ func (c *Comparable[T]) HaveField(fieldName string) IAdditionalWith[T] {
 	haveMembers(c.testingT, f.NegativeDefault, f.MatchAny, f.MemberTypeField, c.value, []string{fieldName}, "Object of [%T] does not have a field called [%v].")
 
 	return c.createAdditionalWith(Params{
-		ptype: fluent.ParamType.Field,
+		ptype: f.ParamType.Field,
 		value: fieldName,
 	})
 }
