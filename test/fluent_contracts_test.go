@@ -14,16 +14,30 @@ func TestFluentContractsShouldBeOfType(t *testing.T) {
 	// Act
 	obj := struct {
 		A int
+		B any
 	}{
 		A: 1,
+		B: struct {
+			B1 string
+		}{
+			B1: "Hello world!",
+		},
 	}
-	objType := reflect.TypeOf(struct{ A int }{})
+	objType := reflect.TypeOf(struct {
+		A int
+		B any
+	}{})
 	fieldType := reflect.TypeOf(int(0))
 
 	// Assert
 	fluent.It(obj).
 		Should().BeOfType(objType).
-		And().HaveField("A").OfType(fieldType)
+		And().HaveField("A").OfType(fieldType).WithValue(1).
+		And().HaveField("B").WithValue(struct {
+		B1 string
+	}{
+		B1: "Hello world!",
+	})
 }
 
 func TestFluentContractsShouldNotBeOfType(t *testing.T) {

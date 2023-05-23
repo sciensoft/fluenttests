@@ -23,7 +23,8 @@ type IComparable[T any] interface {
 
 type IAdditionalWith[T any] interface {
 	fluent.IAdditional[T, IComparable[T]]
-	OfType(ctype reflect.Type) fluent.IAdditional[T, IComparable[T]]
+	OfType(ctype reflect.Type) IAdditionalWith[T]
+	WithValue(value any) IAdditionalWith[T]
 }
 
 type FluentT[T any] struct {
