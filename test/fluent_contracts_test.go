@@ -1,6 +1,7 @@
 package tdd
 
 import (
+	"fmt"
 	"reflect"
 	"testing"
 
@@ -28,6 +29,8 @@ func TestFluentContractsShouldBeOfType(t *testing.T) {
 		B any
 	}{})
 	fieldType := reflect.TypeOf(int(0))
+	t2 := reflect.Int
+	fmt.Println(t2)
 
 	// Assert
 	fluent.It(obj).

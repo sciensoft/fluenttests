@@ -10,21 +10,20 @@ go get github.com/sciensoft/fluenttests
 
 ### Usage
 
-```golang
+```go
 func TestFluentContractsShouldHaveMember(t *testing.T) {
     // Arrange
     fluent := contracts.Fluent[any](t)
-
+    contractType := reflect.TypeOf(struct { Name string }{})
+    fieldType := reflect.TypeOf("")
+    
     // Act
-    model := struct{
-        Name string 
-    }{
-        Name: "Robert Griesemer",
-    }
+    author := repository.RetrieveAuthorById(1) // Returns: struct { Name string }{}
 
     // Assert
-    fluent.It(model).
-        Should().HaveMember("Name")
+    fluent.It(author).
+        Should().BeOfType(contractType).
+        And().HaveField("Name").OfType(fieldType).WithValue("Benjamin Treynor")
 }
 ```
 
@@ -42,9 +41,10 @@ For more samples, please visit [the tests] written to test this own library.
 ### Roadmap
 
 - Support to `complex64`, and `complex128` types
-- Add more auxiliary methods for strings, floats, and integers
-- Add asynchronous test support
-- Support for test panic
+- Add support to `reflect.Kind` for the testing methods `.BeOfType()`, and `.OfType()`
+- Add more auxiliary methods for structs, interfaces, strings, floats, and integers
+- Add support asynchronous tests
+- Add support for panic testing
 
 ## Contributions
 
