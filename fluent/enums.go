@@ -21,3 +21,13 @@ const (
 	MatchAny Match = 1
 	MatchAll Match = 2
 )
+
+type paramType struct {
+	Field  string
+	Method string
+}
+
+var ParamType paramType = paramType{
+	Field:  "Field",
+	Method: "Method",
+}
