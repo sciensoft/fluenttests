@@ -74,7 +74,7 @@ func (s *Comparable[T]) BeGreaterThanOrEqualTo(value T) fluent.IAdditional[T, IC
 	return s.createAdditional()
 }
 
-// createAdditional supports the creation of chained helpful testing methods.
+// createAdditional supports the creation of chained easy-to-use testing methods.
 func (s *Comparable[T]) createAdditional() fluent.IAdditional[T, IComparable[T]] {
 	additional := &Additional[T]{}
 	additional.Comparable = s

@@ -39,7 +39,7 @@ func (s *FluentT[T]) It(subject T) fluent.ISubject[T, IComparable[T]] {
 }
 
 // Should starts the testing operations agains the Mock subject, returning
-// an "*Comparable[T]" object which provides a set of helpful methods
+// an "*Comparable[T]" object which provides a set of easy-to-use methods
 // to test the subject in an additive maner.
 func (s *Subject[T]) Should() IComparable[T] {
 	return &Comparable[T]{
@@ -48,7 +48,7 @@ func (s *Subject[T]) Should() IComparable[T] {
 }
 
 // And extends the testing operation againts the Mock subject, returning
-// an "*Comparable[T]" object which provides a set of helpful methods
+// an "*Comparable[T]" object which provides a set of easy-to-use methods
 // to test the subject in an additive maner.
 //
 // The "And()" method works as an additive connector between test methods

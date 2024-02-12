@@ -66,7 +66,7 @@ func (c *Comparable[T]) HaveAllOfMembers(membersNames []string) f.IAdditional[T,
 	return c.createAdditional()
 }
 
-// createAdditional supports the creation of chained helpful testing methods.
+// createAdditional supports the creation of chained easy-to-use testing methods.
 func (c *Comparable[T]) createAdditional() f.IAdditional[T, IComparable[T]] {
 	additional := &Additional[T]{
 		Comparable: c,
@@ -75,7 +75,7 @@ func (c *Comparable[T]) createAdditional() f.IAdditional[T, IComparable[T]] {
 	return additional
 }
 
-// createAdditionalWith supports the creation of chained helpful testing methods.
+// createAdditionalWith supports the creation of chained easy-to-use testing methods.
 func (c *Comparable[T]) createAdditionalWith(params ...params) IAdditionalWith[T] {
 	additional := &AdditionalWith[T]{
 		Additional: &Additional[T]{

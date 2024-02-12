@@ -7,7 +7,7 @@ import (
 )
 
 // OfType is an extra method used to support assertion by type and made
-// available through some helpful testing methods.
+// available through some easy-to-use testing methods.
 func (a *AdditionalWith[T]) OfType(ctype reflect.Type) IAdditionalWith[T] {
 	param := a.params[0]
 
@@ -22,7 +22,7 @@ func (a *AdditionalWith[T]) OfType(ctype reflect.Type) IAdditionalWith[T] {
 }
 
 // WithValue is an extra method used to support assertion by a specific value
-// and made available through some helpful testing methods.
+// and made available through some easy-to-use testing methods.
 func (a *AdditionalWith[T]) WithValue(value any) IAdditionalWith[T] {
 	param := a.params[0]
 
