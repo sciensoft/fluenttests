@@ -1,3 +1,13 @@
+// Copyright 2023 The FluentTest Authors. All rights reserved.
+// Use of this source code is governed by a Apache license
+// that can be found in the LICENSE file.
+
+// Package integers provides members to register and test intergers Mock objects.
+// It is intended to be used in concert with "*testing.T" functions,
+// and the "go test" command, which automates execution of any function
+// of the form:
+//
+// "func TestXxx(*testing.T)" functions.
 package integers
 
 import (
@@ -7,12 +17,17 @@ import (
 	"golang.org/x/exp/constraints"
 )
 
+// Fluent[T constraints.Integer] returns an "*fluent.Fluent[T]" representing a Mock object
+// used on further test cases. The generic type parameter represents any
+// testable signed or unsigned interger subject.
 func Fluent[T constraints.Integer](t *testing.T) fluent.IFluent[T, IComparable[T]] {
 	return &FluentT[T]{
 		testingT: t,
 	}
 }
 
+// It receives a subject object of generic type "T", a constraint of Integer
+// for further testing, and returns an "Subject[T]" object.
 func (s *FluentT[T]) It(subject T) fluent.ISubject[T, IComparable[T]] {
 	sub := Subject[T]{
 		Testable: &Testable[T]{},
@@ -23,12 +38,21 @@ func (s *FluentT[T]) It(subject T) fluent.ISubject[T, IComparable[T]] {
 	return &sub
 }
 
+// Should starts the testing operations agains the Mock subject, returning
+// an "*Comparable[T]" object which provides a set of helpful methods
+// to test the subject in an additive maner.
 func (s *Subject[T]) Should() IComparable[T] {
 	return &Comparable[T]{
 		Testable: s.Testable,
 	}
 }
 
+// And extends the testing operation againts the Mock subject, returning
+// an "*Comparable[T]" object which provides a set of helpful methods
+// to test the subject in an additive maner.
+//
+// The "And()" method works as an additive connector between test methods
+// from "IComparable[T]", allowing execution of chained testing methods.
 func (s *Additional[T]) And() IComparable[T] {
 	return s.Comparable
 }

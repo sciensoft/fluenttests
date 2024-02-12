@@ -6,6 +6,8 @@ import (
 	"github.com/sciensoft/fluenttests/fluent"
 )
 
+// OfType is an extra method used to support assertion by type and made
+// available through some helpful testing methods.
 func (a *AdditionalWith[T]) OfType(ctype reflect.Type) IAdditionalWith[T] {
 	param := a.params[0]
 
@@ -19,6 +21,8 @@ func (a *AdditionalWith[T]) OfType(ctype reflect.Type) IAdditionalWith[T] {
 	return a
 }
 
+// WithValue is an extra method used to support assertion by a specific value
+// and made available through some helpful testing methods.
 func (a *AdditionalWith[T]) WithValue(value any) IAdditionalWith[T] {
 	param := a.params[0]
 
