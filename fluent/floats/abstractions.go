@@ -26,7 +26,7 @@ type IComparable[T constraints.Float] interface {
 	BeGreaterThanOrEqualTo(value T) fluent.IAdditional[T, IComparable[T]]
 }
 
-// FluentT[T constraints.Float] is a type returned by calling "contracts.Fluent[constraints.Float](t)"
+// FluentT[T constraints.Float] is a type returned by calling "floats.Fluent[constraints.Float](t)"
 // for enabling easy-to-use testing methods.
 //
 // It carries the "*testing.T" object to be further used in the methods chain.
