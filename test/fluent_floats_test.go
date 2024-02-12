@@ -99,6 +99,7 @@ func TestFluentFloat64ShouldBePositive(t *testing.T) {
 		Should().
 		BePositive()
 }
+
 func TestFluentFloat32ShouldToNotBe(t *testing.T) {
 	// Arrange
 	fluent := floats.Fluent[float32](t)
