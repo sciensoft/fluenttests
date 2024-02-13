@@ -12,6 +12,8 @@ func TestFluentIntShouldBe(t *testing.T) {
 	fluent := integers.Fluent[int](t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It(10).
 		Should().
@@ -23,6 +25,8 @@ func TestFluentIntShouldBeZero(t *testing.T) {
 	fluent := integers.Fluent[int](t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It(0).
 		Should().
@@ -34,6 +38,8 @@ func TestFluentIntShouldBeNegative(t *testing.T) {
 	fluent := integers.Fluent[int](t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It(-1).
 		Should().
@@ -45,6 +51,8 @@ func TestFluentIntShouldBePositive(t *testing.T) {
 	fluent := integers.Fluent[int](t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It(10).
 		Should().
@@ -56,6 +64,8 @@ func TestFluentIntShouldNotBe(t *testing.T) {
 	fluent := integers.Fluent[int](t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It(142).
 		Should().
@@ -67,6 +77,8 @@ func TestFluentIntShouldNotBeZero(t *testing.T) {
 	fluent := integers.Fluent[int](t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It(1).
 		Should().
@@ -78,6 +90,8 @@ func TestFluentIntShouldNotBeNegative(t *testing.T) {
 	fluent := integers.Fluent[int](t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It(10).
 		Should().
@@ -89,6 +103,8 @@ func TestFluentIntShouldNotBePositive(t *testing.T) {
 	fluent := integers.Fluent[int](t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It(-10).
 		Should().
@@ -100,6 +116,8 @@ func TestFluentIntShouldBeLowerThan(t *testing.T) {
 	fluent := integers.Fluent[int](t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It(100).
 		Should().
@@ -113,6 +131,8 @@ func TestFluentIntShouldBeLowerThanOrEqualTo(t *testing.T) {
 	fluent := integers.Fluent[int](t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It(10).
 		Should().
@@ -124,6 +144,8 @@ func TestFluentIntShouldBeGreaterThan(t *testing.T) {
 	fluent := integers.Fluent[int](t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It(30).
 		Should().
@@ -137,6 +159,8 @@ func TestFluentIntShouldBeGreaterThanOrEqualTo(t *testing.T) {
 	fluent := integers.Fluent[int64](t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It(math.MaxInt64).
 		Should().

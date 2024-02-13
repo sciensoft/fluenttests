@@ -10,10 +10,11 @@ import (
 func TestFluentStringsShouldBe(t *testing.T) {
 	// Arrange
 	fluent := strings.Fluent(t)
-
-	// Act
 	text1 := "Ola, tudo bem?"
 	text2 := "Ola, tudo bem?"
+
+	// Act
+	// ... Noop
 
 	// Assert
 	fluent.It(text1).
@@ -25,6 +26,8 @@ func TestFluentStringsShouldBeEmpty(t *testing.T) {
 	fluent := strings.Fluent(t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It("").
 		Should().BeEmpty()
@@ -33,13 +36,14 @@ func TestFluentStringsShouldBeEmpty(t *testing.T) {
 func TestFluentStringsShouldBeOneOf(t *testing.T) {
 	// Arrange
 	fluent := strings.Fluent(t)
-
-	// Act
 	texts := []string{
 		"This is a message",
 		"which contains",
 		"Bonjour le monde!",
 	}
+
+	// Act
+	// ... Noop
 
 	// Assert
 	fluent.It("Bonjour le monde!").
@@ -51,6 +55,8 @@ func TestFluentStringsShouldNotBe(t *testing.T) {
 	fluent := strings.Fluent(t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It("¡Hola Mundo!").
 		Should().NotBe("¡Esto no es Hola Mundo!")
@@ -61,6 +67,8 @@ func TestFluentStringsShouldNotBeEmpty(t *testing.T) {
 	fluent := strings.Fluent(t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It("Hello there!").
 		Should().NotBeEmpty()
@@ -69,13 +77,14 @@ func TestFluentStringsShouldNotBeEmpty(t *testing.T) {
 func TestFluentStringsShouldNotBeOneOf(t *testing.T) {
 	// Arrange
 	fluent := strings.Fluent(t)
-
-	// Act
 	texts := []string{
 		"This is a message",
 		"which contains",
 		"Hello World!",
 	}
+
+	// Act
+	// ... Noop
 
 	// Assert
 	fluent.It("Hello Word!").
@@ -87,6 +96,8 @@ func TestFluentStringsShouldMatch(t *testing.T) {
 	fluent := strings.Fluent(t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It("Hello World!").
 		Should().
@@ -104,6 +115,8 @@ func TestFluentStringsShouldNotMatch(t *testing.T) {
 	fluent := strings.Fluent(t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It("This is Go!").
 		Should().
@@ -119,6 +132,8 @@ func TestFluentStringsShouldStartWith(t *testing.T) {
 	fluent := strings.Fluent(t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It("Hello world!").
 		Should().StartWith("He")
@@ -129,6 +144,8 @@ func TestFluentStringsShouldNotStartWith(t *testing.T) {
 	fluent := strings.Fluent(t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It("Hello world!").
 		Should().NotStartWith("Hall")
@@ -139,6 +156,8 @@ func TestFluentStringsShouldEndWith(t *testing.T) {
 	fluent := strings.Fluent(t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It("Hello world!").
 		Should().EndWith("ld!")
@@ -149,6 +168,8 @@ func TestFluentStringsShouldNotEndWith(t *testing.T) {
 	fluent := strings.Fluent(t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It("Hello world!").
 		Should().NotEndWith("word!")
@@ -157,9 +178,10 @@ func TestFluentStringsShouldNotEndWith(t *testing.T) {
 func TestFluentStringsShouldHaveLengthOf(t *testing.T) {
 	// Arrange
 	fluent := strings.Fluent(t)
+	message := "Hello World!"
 
 	// Act
-	length := len("Hello World!")
+	length := len(message)
 
 	// Assert
 	fluent.It("Hello World!").

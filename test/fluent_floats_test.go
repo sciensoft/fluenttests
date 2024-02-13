@@ -13,6 +13,8 @@ func TestFluentFloat32ShouldBe(t *testing.T) {
 	fluent := floats.Fluent[float32](t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It(10.11).
 		Should().
@@ -24,6 +26,8 @@ func TestFluentFloat64ShouldBe(t *testing.T) {
 	fluent := floats.Fluent[float64](t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It(0.6645600532184904).
 		Should().
@@ -35,6 +39,8 @@ func TestFluentFloat32ShouldBeZero(t *testing.T) {
 	fluent := floats.Fluent[float32](t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It(0).
 		Should().
@@ -46,6 +52,8 @@ func TestFluentFloat64ShouldBeZero(t *testing.T) {
 	fluent := floats.Fluent[float64](t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It(0.0).
 		Should().
@@ -57,6 +65,8 @@ func TestFluentFloat32ShouldBeNegative(t *testing.T) {
 	fluent := floats.Fluent[float32](t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It(-0.0114131).
 		Should().
@@ -68,6 +78,8 @@ func TestFluentFloat64ShouldBeNegative(t *testing.T) {
 	fluent := floats.Fluent[float64](t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It(-0.6645600532184904).
 		Should().
@@ -77,9 +89,10 @@ func TestFluentFloat64ShouldBeNegative(t *testing.T) {
 func TestFluentFloat32ShouldBePositive(t *testing.T) {
 	// Arrange
 	fluent := floats.Fluent[float32](t)
+	number := rand.Float32()
 
 	// Act
-	number := rand.Float32()
+	// ... Noop
 
 	// Assert
 	fluent.It(number).
@@ -90,9 +103,10 @@ func TestFluentFloat32ShouldBePositive(t *testing.T) {
 func TestFluentFloat64ShouldBePositive(t *testing.T) {
 	// Arrange
 	fluent := floats.Fluent[float64](t)
+	number := rand.Float64()
 
 	// Act
-	number := rand.Float64()
+	// ... Noop
 
 	// Assert
 	fluent.It(number).
@@ -103,10 +117,11 @@ func TestFluentFloat64ShouldBePositive(t *testing.T) {
 func TestFluentFloat32ShouldToNotBe(t *testing.T) {
 	// Arrange
 	fluent := floats.Fluent[float32](t)
-
-	// Act
 	number1 := rand.Float32()
 	number2 := rand.Float32()
+
+	// Act
+	// ... Noop
 
 	// Assert
 	fluent.It(number1).
@@ -117,10 +132,11 @@ func TestFluentFloat32ShouldToNotBe(t *testing.T) {
 func TestFluentFloat64ShouldToNotBe(t *testing.T) {
 	// Arrange
 	fluent := floats.Fluent[float64](t)
-
-	// Act
 	number1 := rand.Float64()
 	number2 := rand.Float64()
+
+	// Act
+	// ... Noop
 
 	// Assert
 	fluent.It(number1).
@@ -131,9 +147,10 @@ func TestFluentFloat64ShouldToNotBe(t *testing.T) {
 func TestFluentFloat32ShouldToNotBeZero(t *testing.T) {
 	// Arrange
 	fluent := floats.Fluent[float32](t)
+	number := (rand.Float32() + 10) * 10
 
 	// Act
-	number := (rand.Float32() + 10) * 10
+	// ... Noop
 
 	// Assert
 	fluent.It(number).
@@ -144,9 +161,10 @@ func TestFluentFloat32ShouldToNotBeZero(t *testing.T) {
 func TestFluentFloat64ShouldToNotBeZero(t *testing.T) {
 	// Arrange
 	fluent := floats.Fluent[float64](t)
+	var base, expo float64 = 10, 5
 
 	// Act
-	number := math.Pow(rand.Float64()+10, 5)
+	number := math.Pow(rand.Float64()+base, expo)
 
 	// Assert
 	fluent.It(number).
@@ -159,6 +177,8 @@ func TestFluentShouldFloatToNotBeNegative(t *testing.T) {
 	fluent := floats.Fluent[float32](t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It(rand.Float32()).
 		Should().
@@ -168,9 +188,10 @@ func TestFluentShouldFloatToNotBeNegative(t *testing.T) {
 func TestFluentFloat32ShouldToNotBePositive(t *testing.T) {
 	// Arrange
 	fluent := floats.Fluent[float32](t)
+	number := -(rand.Float32())
 
 	// Act
-	number := -(rand.Float32())
+	// ... Noop
 
 	// Assert
 	fluent.It(number).
@@ -181,9 +202,10 @@ func TestFluentFloat32ShouldToNotBePositive(t *testing.T) {
 func TestFluentFloat64ShouldToNotBePositive(t *testing.T) {
 	// Arrange
 	fluent := floats.Fluent[float64](t)
+	number := -(rand.Float64())
 
 	// Act
-	number := -(rand.Float64())
+	// ... Noop
 
 	// Assert
 	fluent.It(number).
@@ -194,9 +216,10 @@ func TestFluentFloat64ShouldToNotBePositive(t *testing.T) {
 func TestFluentFloat32ShouldBeLowerThan(t *testing.T) {
 	// Arrange
 	fluent := floats.Fluent[float32](t)
+	number := rand.Float32()
 
 	// Act
-	number := rand.Float32()
+	// ... Noop
 
 	// Assert
 	fluent.It(number).
@@ -207,9 +230,10 @@ func TestFluentFloat32ShouldBeLowerThan(t *testing.T) {
 func TestFluentFloat64ShouldBeLowerThan(t *testing.T) {
 	// Arrange
 	fluent := floats.Fluent[float64](t)
+	number := rand.Float64()
 
 	// Act
-	number := rand.Float64()
+	// ... Noop
 
 	// Assert
 	fluent.It(number).
@@ -220,9 +244,10 @@ func TestFluentFloat64ShouldBeLowerThan(t *testing.T) {
 func TestFluentFloat32ShouldBeLowerThanOrEqualTo(t *testing.T) {
 	// Arrange
 	fluent := floats.Fluent[float32](t)
+	number := rand.Float32()
 
 	// Act
-	number := rand.Float32()
+	// ... Noop
 
 	// Assert
 	fluent.It(number).
@@ -235,9 +260,10 @@ func TestFluentFloat32ShouldBeLowerThanOrEqualTo(t *testing.T) {
 func TestFluentFloat64ShouldBeLowerThanOrEqualTo(t *testing.T) {
 	// Arrange
 	fluent := floats.Fluent[float64](t)
+	number := rand.Float64()
 
 	// Act
-	number := rand.Float64()
+	// ... Noop
 
 	// Assert
 	fluent.It(number).
@@ -250,9 +276,10 @@ func TestFluentFloat64ShouldBeLowerThanOrEqualTo(t *testing.T) {
 func TestFluentFloat32ShouldBeGreaterThan(t *testing.T) {
 	// Arrange
 	fluent := floats.Fluent[float32](t)
+	number := rand.Float32()
 
 	// Act
-	number := rand.Float32()
+	// ... Noop
 
 	// Assert
 	fluent.It(number).
@@ -263,9 +290,10 @@ func TestFluentFloat32ShouldBeGreaterThan(t *testing.T) {
 func TestFluentFloat64ShouldBeGreaterThan(t *testing.T) {
 	// Arrange
 	fluent := floats.Fluent[float64](t)
+	number := rand.Float64()
 
 	// Act
-	number := rand.Float64()
+	// ... Noop
 
 	// Assert
 	fluent.It(number).
@@ -280,6 +308,8 @@ func TestFluentFloat32ShouldBeGreaterThanOrEqualTo(t *testing.T) {
 	fluent := floats.Fluent[float32](t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It(math.MaxFloat32).
 		Should().
@@ -291,6 +321,8 @@ func TestFluentFloat64ShouldBeGreaterThanOrEqualTo(t *testing.T) {
 	fluent := floats.Fluent[float64](t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It(math.MaxFloat64).
 		Should().

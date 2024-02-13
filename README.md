@@ -2,7 +2,7 @@
 
 A Golang test library to increase productivity by providing easy-to-use methods for you to write TDD and BDD-style tests using a fluent language, allowing you to easily organize your tests following the Arrange, Act, and Assert pattern. Plus, several assertion methods for types, contracts, strings, integers, floats, and much more to speed up your SDLC.
 
-**📢 Hear ye, hear ye!** Contributors always welcomed. If you want to get involved and help me write this testing tool for our peers Go developers, please ping me on the [fluenttests Discord] channel.
+**📢 Hear ye, hear ye!** Contributors always welcomed. If you want to get involved and help me write this testing tool for our peers Gophers, please ping me on the [fluenttests Discord] channel.
 
 ## Get Started
 

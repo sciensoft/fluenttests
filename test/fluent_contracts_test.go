@@ -1,7 +1,6 @@
 package tdd
 
 import (
-	"fmt"
 	"reflect"
 	"testing"
 
@@ -11,8 +10,6 @@ import (
 func TestFluentContractsShouldBeOfType(t *testing.T) {
 	// Arrange
 	fluent := contracts.Fluent[any](t)
-
-	// Act
 	obj := struct {
 		A int
 		B any
@@ -29,8 +26,9 @@ func TestFluentContractsShouldBeOfType(t *testing.T) {
 		B any
 	}{})
 	fieldType := reflect.TypeOf(int(0))
-	t2 := reflect.Int
-	fmt.Println(t2)
+
+	// Act
+	// ... Noop
 
 	// Assert
 	fluent.It(obj).
@@ -46,11 +44,12 @@ func TestFluentContractsShouldBeOfType(t *testing.T) {
 func TestFluentContractsShouldNotBeOfType(t *testing.T) {
 	// Arrange
 	fluent := contracts.Fluent[any](t)
-
-	// Act
 	obj1 := struct{ A int }{A: 1}
 	obj2 := struct{ B int }{B: 1}
 	rtype := reflect.TypeOf(obj2)
+
+	// Act
+	// ... Noop
 
 	// Assert
 	fluent.It(obj1).
@@ -60,9 +59,10 @@ func TestFluentContractsShouldNotBeOfType(t *testing.T) {
 func TestFluentContractsShouldHaveMember(t *testing.T) {
 	// Arrange
 	fluent := contracts.Fluent[any](t)
+	obj := struct{ Name string }{Name: "Robert Griesemer"}
 
 	// Act
-	obj := struct{ Name string }{Name: "Robert Griesemer"}
+	// ... Noop
 
 	// Assert
 	fluent.It(obj).
@@ -72,9 +72,10 @@ func TestFluentContractsShouldHaveMember(t *testing.T) {
 func TestFluentContractsShouldHaveField(t *testing.T) {
 	// Arrange
 	fluent := contracts.Fluent[any](t)
+	obj := struct{ Value float32 }{Value: 105.4}
 
 	// Act
-	obj := struct{ Value float32 }{Value: 105.4}
+	// ... Noop
 
 	// Assert
 	fluent.It(obj).
@@ -84,13 +85,14 @@ func TestFluentContractsShouldHaveField(t *testing.T) {
 func TestFluentContractsShouldHaveFieldWithTag(t *testing.T) {
 	// Arrange
 	fluent := contracts.Fluent[any](t)
-
-	// Act
 	obj := struct {
 		Value float32 `json:"value"`
 	}{
 		Value: 105.4,
 	}
+
+	// Act
+	// ... Noop
 
 	// Assert
 	fluent.It(obj).
@@ -100,8 +102,6 @@ func TestFluentContractsShouldHaveFieldWithTag(t *testing.T) {
 func TestFluentContractsShouldHaveAllFieldsWithTag(t *testing.T) {
 	// Arrange
 	fluent := contracts.Fluent[any](t)
-
-	// Act
 	obj := struct {
 		Title string  `json:"title"`
 		Value float32 `json:"value"`
@@ -109,6 +109,9 @@ func TestFluentContractsShouldHaveAllFieldsWithTag(t *testing.T) {
 		Title: "Book Xyz",
 		Value: 105.4,
 	}
+
+	// Act
+	// ... Noop
 
 	// Assert
 	fluent.It(obj).
@@ -120,6 +123,8 @@ func TestFluentContractsShouldHaveMethod(t *testing.T) {
 	fluent := contracts.Fluent[any](t)
 
 	// Act
+	// ... Noop
+
 	// Assert
 	fluent.It(fluent).
 		Should().HaveMethod("It")
@@ -128,8 +133,6 @@ func TestFluentContractsShouldHaveMethod(t *testing.T) {
 func TestFluentContractsShouldHaveAnyOfMembers(t *testing.T) {
 	// Arrange
 	fluent := contracts.Fluent[any](t)
-
-	// Act
 	obj := struct {
 		Title     string
 		Author    string
@@ -139,6 +142,9 @@ func TestFluentContractsShouldHaveAnyOfMembers(t *testing.T) {
 		Author:    "Rob Pike",
 		Publisher: "AT&T Bell Laboratories",
 	}
+
+	// Act
+	// ... Noop
 
 	// Assert
 	fluent.It(obj).
@@ -153,8 +159,6 @@ func TestFluentContractsShouldHaveAnyOfMembers(t *testing.T) {
 func TestFluentContractsShouldHaveAllOfMembers(t *testing.T) {
 	// Arrange
 	fluent := contracts.Fluent[any](t)
-
-	// Act
 	obj := struct {
 		Title     string
 		Author    string
@@ -164,6 +168,9 @@ func TestFluentContractsShouldHaveAllOfMembers(t *testing.T) {
 		Author:    "Rob Pike",
 		Publisher: "AT&T Bell Laboratories",
 	}
+
+	// Act
+	// ... Noop
 
 	// Assert
 	fluent.It(obj).
